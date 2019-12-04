@@ -1,0 +1,113 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class="gr__201_149_127_174">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link href="StyleLogin.css" rel="stylesheet" />
+    <link rel="Shortcut Icon" href="Acomp.jpg" type="image/jpg">
+
+    <script type="text/javascript">
+        function validar() {
+            var usuario = form.cadastro.usuario.value;
+            var senha = form.cadastro.senha.value;
+            var cpf = form.cadastro.cpf.value;
+
+            //Validar que vai ter entrada e que vai ter no mínimo 5 caracteres
+            if (usuario == "" || usuario.length <= 4) {
+                alert('Preencha o campo usuário corretamente');
+                form.cadastro.usuario.focus();
+                return false;
+            }
+            //Validar que vai ter entrada e que vai ter no mínimo 6 caracteres
+            if (senha == "" || senha.length <= 5) {
+                alert('Preencha o campo senha corretamente');
+                form.cadastro.senha.focus();
+                return false;
+            }
+            //Validar que vai ter entrada e que vai ter '-'
+            if (cpf == "" || cpf.indexOf('-') == -1) {
+                alert('Preencha o campo cpf corretamente');
+                form.cadastro.cpf.focus();
+                return false;
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function resize() {
+            bodyObj = document.body;
+            bodyObj.style.width = (document.documentElement.clientWidth < 1000 ? 1000 : document.documentElement.clientWidth) + "px"
+        }
+
+        function pageLoad() {
+            resize();
+            window.onresize = resize;
+        };
+    </script>
+
+    <title>Cadastro</title>
+</head>
+
+<body onload="pageLoad()" style="width: 1000px;">
+    <div class="topLogo">
+        <table cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+                    <td>
+                        <table border="0" cellspacing="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td id="ft-td">
+                                        <img src="Acomp.jpg" alt="pi" height="100px" width="150px" />
+                                        </a>
+                                    </td>
+                                    <td id="sd-td">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="tname" class="st1">AcomP
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="tdesc" class="st2">Acompanhamento de pedidos, Entrega e Portal de Acompanhamento</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="loginBox">
+        <div class="panelThre" align="center">
+            <div align="center" class="picDiv">
+                <form name="form.cadastro" onsubmit="return validar()" method="POST">
+                    <input type="text" name="usuario" placeholder="Usuário">
+                    <br><br>
+                    <input type="password" name="senha" placeholder="Senha">
+                    <br><br>
+                    <input type="text" name="cpf" placeholder="CPF">
+                    <br><br>
+                    <input type="text" name="cnpj" placeholder="CNPJ">
+                    <br><br>
+                    <input type="text" name="status" placeholder="Status">
+                    <br><br>
+                    <input type="text" name="idPedido" placeholder="Id do Pedido">
+                    <br><br>
+                    <input type="text" name="numeroPedido" placeholder="Número Do Pedido">
+                    <p>
+                        <input type="submit" value="Cadastrar" name="submit" onclick="return validar()">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

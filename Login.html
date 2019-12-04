@@ -5,28 +5,30 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
+    <link rel="Shortcut Icon" href="Acomp.jpg" type="image/jpg">
     <link href="StyleLogin.css" rel="stylesheet" />
+
     <script type="text/javascript">
         function validar() {
             var usuario = form.cadastro.usuario.value;
             var cpf = form.cadastro.cpf.value;
             var senha = form.cadastro.senha.value;
 
-            //Validar que vai ter entrada e que vai ter no mínimo 5 caracteres
+            //Validar que vai ter entrada e que vai ter no mínimo 5 caracteres e não pode ser entrada vazia 
             if (usuario == "" || usuario.length <= 4) {
                 alert('Preencha o campo usuário corretamente');
                 form.cadastro.usuario.focus();
                 return false;
             }
-            //Validar que vai ter entrada e que vai ter no mínimo 6 caracteres
+            //Validar que vai ter entrada e que vai ter no mínimo 6 caracteres e não pode ser entrada vazia 
             if (senha == "" || senha.length <= 5) {
                 alert('Preencha o campo senha corretamente');
                 form.cadastro.senha.focus();
                 return false;
             }
-            //Validar que vai ter entrada e que vai ter '-'
-            if (cpf == "" || email.indexOf('-') == -1) {
-                alert('Preencha o campo cpf corretamente');
+            //Validar que vai ter entrada e que vai ter '-', com 12 caracteres e não pode ser entrada vazia 
+            if (cpf == "" || cpf.indexOf('-') == -1 || usuario.length <= 11) {
+                alert('Preencha o campo cpf corretamente, não utilizando pontos, utilizando apenas o " - " para os números de validação');
                 form.cadastro.usuario.focus();
                 return false;
             }
@@ -46,10 +48,9 @@
     </script>
 </head>
 
-<body onkeypress="PCWin(event)" onload="pageLoad()" data-gr-c-s-loaded="true" style="width: 1000px;">
+<body onload="pageLoad()" style="width: 1000px;">
 
     <div class="topLogo">
-
         <table cellspacing="0" width="100%">
             <tbody>
                 <tr>
@@ -57,20 +58,19 @@
                         <table border="0" cellspacing="0" width="100%">
                             <tbody>
                                 <tr>
-                                    <td id="first-td">
-                                        <a onclick="return NewW();" onmouseover="return ShowUrl();" onmouseout="return EraseUrl();">
-                                            <img src="Acomp.jpg" alt="pi" height="90px" width="150px" />
+                                    <td id="ft-td">
+                                        <img src="Acomp.jpg" height="100px" width="150px" />
                                         </a>
                                     </td>
-                                    <td id="second-td">
+                                    <td id="sd-td">
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <td id="tname" class="style1">AcomP
+                                                    <td id="tname" class="st1">AcomP
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td id="tdesc" class="style2">Acompanhamento de pedidos, Entrega e Portal de Acompanhamento.</td>
+                                                    <td id="tdesc" class="st2">Acompanhamento de pedidos, Entrega e Portal de Acompanhamento</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -84,25 +84,47 @@
         </table>
     </div>
     <div class="loginBox">
-        <div class="noteDiv">
-            <span id="note"></span>
-            <span id="tip"></span>
-        </div>
-        <div class="panelThre" align="center">
+        <div class="p" align="center">
             <div align="center" class="picDiv">
-                <form name="form.cadastro" onsubmit="return validar()" method="POST">
-                    <input type="text" name="usuario" placeholder="Usuário" required>
-                    <br><br>
-                    <input type="password" name="senha" placeholder="Senha" required>
-                    <br><br>
-                    <input type="text" name="cpf" placeholder="CPF" required>
-                    <p>
-                        <input type="submit" value="Login" name="submit" onclick="return validar()">
-                    </p>
-                </form>
-            </div>
-        </div>
-    </div>
+                <div class="container h-100">
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="user_card">
+                            <div class="d-flex justify-content-center">
+                                <div class="brand_logo_container">
+                                    <img src="Acomp.jpg" class="brand_logo" alt="Logo">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center form_container">
+                                <form name="form.cadastro" onsubmit="return validar()" method="POST">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <input type="text" name="usuario" class="form-control input_user" value="" placeholder="Usuário">
+                                    </div>
+                                    <br>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        <input type="password" name="senha" class="form-control input_pass" value="" placeholder="Senha">
+                                    </div>
+                                    <br>
+                                    <div class="input-group mb-1">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        <input type="text" name="cpf" class="form-control input_cpf" value="" placeholder="CPF">
+                                    </div>
+                                    <br>
+                                    <div class="d-flex justify-content-center mt-3 login_container">
+                                        <button type="button" name="button" class="btn login_btn" onclick="return validar()">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </body>
 
 </html>
