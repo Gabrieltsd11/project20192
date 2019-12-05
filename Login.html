@@ -1,35 +1,35 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" class="gr__201_149_127_174">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+
 
     <link rel="Shortcut Icon" href="Acomp.jpg" type="image/jpg">
     <link href="StyleLogin.css" rel="stylesheet" />
 
     <script type="text/javascript">
         function validar() {
-            var usuario = form.cadastro.usuario.value;
-            var cpf = form.cadastro.cpf.value;
-            var senha = form.cadastro.senha.value;
+            var usuario = formlogar.usuario.value;
+            var cpf = formlogar.cpf.value;
+            var senha = formlogar.senha.value;
 
             //Validar que vai ter entrada e que vai ter no mínimo 5 caracteres e não pode ser entrada vazia 
             if (usuario == "" || usuario.length <= 4) {
                 alert('Preencha o campo usuário corretamente');
-                form.cadastro.usuario.focus();
+                formlogar.usuario.focus();
                 return false;
             }
             //Validar que vai ter entrada e que vai ter no mínimo 6 caracteres e não pode ser entrada vazia 
             if (senha == "" || senha.length <= 5) {
                 alert('Preencha o campo senha corretamente');
-                form.cadastro.senha.focus();
+                formlogar.senha.focus();
                 return false;
             }
             //Validar que vai ter entrada e que vai ter '-', com 12 caracteres e não pode ser entrada vazia 
-            if (cpf == "" || cpf.indexOf('-') == -1 || usuario.length <= 11) {
+            if (cpf == "" || cpf.indexOf('-') == -1 || cpf.length <= 11) {
                 alert('Preencha o campo cpf corretamente, não utilizando pontos, utilizando apenas o " - " para os números de validação');
-                form.cadastro.usuario.focus();
+                formlogar.cpf.focus();
                 return false;
             }
         }
@@ -95,30 +95,30 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center form_container">
-                                <form name="form.cadastro" onsubmit="return validar()" method="POST">
+                                <form name="formlogar" onsubmit="return validar()" method="POST">
                                     <div class="input-group mb-3">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <input type="text" name="usuario" class="form-control input_user" value="" placeholder="Usuário">
+                                        <input type="text" name="usuario" class="form-control input_user" value="" placeholder="Usuário" >
                                     </div>
                                     <br>
                                     <div class="input-group mb-2">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                                         </div>
-                                        <input type="password" name="senha" class="form-control input_pass" value="" placeholder="Senha">
+                                        <input type="password" name="senha" class="form-control input_pass" value="" placeholder="Senha" >
                                     </div>
                                     <br>
                                     <div class="input-group mb-1">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                                         </div>
-                                        <input type="text" name="cpf" class="form-control input_cpf" value="" placeholder="CPF">
+                                        <input type="text" name="cpf" class="form-control input_cpf" value="" placeholder="CPF" >
                                     </div>
                                     <br>
                                     <div class="d-flex justify-content-center mt-3 login_container">
-                                        <button type="button" name="button" class="btn login_btn" onclick="return validar()">Login</button>
+                                        <button type="submit" name="button" class="btn login_btn" onclick="return validar()">Login</button>
                                     </div>
                                 </form>
                             </div>
